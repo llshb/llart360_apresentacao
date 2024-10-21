@@ -1,76 +1,53 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Hotéis</title>
-    
-    <!-- Estilos CSS para a página -->
-    <style>
-        /* Define a estilização global do corpo da página */
-        body {
-            font-family: Arial, sans-serif; /* Define a fonte utilizada */
-            margin: 0; /* Remove margens padrão */
-            padding: 0; /* Remove padding padrão */
-            background-color: rgb(9, 15, 19); /* Cor de fundo da página, baseada na imagem enviada */
-        }
+<!-- Estilos CSS para o card -->
+<style>
+    /* Estilos para o card */
+    .portfolio {
+        display: inline-block; /* Exibe como bloco em linha */
+        width: 45%; /* Define a largura do card */
+        margin: 20px; /* Margem ao redor do card */
+        padding: 20px; /* Espaçamento interno */
+        background-color: #fff; /* Cor de fundo do card */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ao redor do card */
+        border-radius: 10px; /* Bordas arredondadas */
+        transition: transform 0.3s ease-in-out; /* Animação suave ao passar o mouse */
+    }
 
-        /* Estilos para a área de cada portfólio */
-        .portfolio {
-            display: inline-block; /* Exibe como bloco em linha */
-            width: 45%; /* Define a largura da seção */
-            margin: 20px; /* Margem ao redor do bloco */
-            padding: 20px; /* Espaçamento interno */
-            background-color: #fff; /* Cor de fundo do bloco */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ao redor do bloco */
-            border-radius: 10px; /* Bordas arredondadas */
-            transition: transform 0.3s ease-in-out; /* Animação suave ao passar o mouse */
-        }
+    /* Animação ao passar o mouse sobre o card */
+    .portfolio:hover {
+        transform: scale(1.05); /* Aumenta o tamanho do card em 5% */
+    }
 
-        /* Animação ao passar o mouse sobre o bloco */
-        .portfolio:hover {
-            transform: scale(1.05); /* Aumenta o tamanho do bloco em 5% */
-        }
+    /* Estilos para o título dentro do card */
+    .portfolio h2 {
+        font-size: 2em; /* Tamanho da fonte do título */
+    }
 
-        /* Estilos para o título da seção de portfólio */
-        .portfolio h2 {
-            font-size: 2em; /* Tamanho da fonte do título */
-        }
+    /* Estilos para o parágrafo descritivo dentro do card */
+    .portfolio p {
+        font-size: 1em; /* Tamanho da fonte do parágrafo */
+        margin-bottom: 15px; /* Espaçamento inferior */
+    }
 
-        /* Estilos para o parágrafo descritivo */
-        .portfolio p {
-            font-size: 1em; /* Tamanho da fonte do parágrafo */
-            margin-bottom: 15px; /* Espaçamento inferior */
-        }
+    /* Estilos para o link de 'Veja Mais' */
+    .portfolio a {
+        display: inline-block; /* Exibe o link como bloco em linha */
+        text-decoration: none; /* Remove o sublinhado do link */
+        color: white; /* Cor do texto do link */
+        background-color: #333; /* Cor de fundo do botão/link */
+        padding: 10px 20px; /* Espaçamento interno no botão/link */
+        border-radius: 5px; /* Bordas arredondadas do botão/link */
+        transition: background-color 0.3s; /* Transição suave de cor de fundo */
+    }
 
-        /* Estilos para o link de 'Veja Mais' */
-        .portfolio a {
-            display: inline-block; /* Exibe o link como bloco em linha */
-            text-decoration: none; /* Remove o sublinhado do link */
-            color: white; /* Cor do texto do link */
-            background-color: #333; /* Cor de fundo do botão/link */
-            padding: 10px 20px; /* Espaçamento interno no botão/link */
-            border-radius: 5px; /* Bordas arredondadas do botão/link */
-            transition: background-color 0.3s; /* Transição suave de cor de fundo */
-        }
+    /* Animação ao passar o mouse sobre o link */
+    .portfolio a:hover {
+        background-color: #555; /* Muda a cor de fundo do link ao passar o mouse */
+    }
+</style>
 
-        /* Animação ao passar o mouse sobre o link */
-        .portfolio a:hover {
-            background-color: #555; /* Muda a cor de fundo do link ao passar o mouse */
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Bloco de portfólio de hotéis -->
-    <div class="portfolio">
-        <!-- Título da seção -->
-        <h2>Portfólio - Hotéis</h2>
-        <!-- Descrição do portfólio de hotéis -->
-        <p>Explore exemplos reais de hotéis que já utilizaram nossos serviços de tours virtuais.</p>
-        <!-- Link para visualizar mais detalhes -->
-        <a href="pagina_exemplo_hotel.html">Veja Mais</a>
-    </div>
-
-</body>
-</html>
+<!-- Estrutura HTML do card -->
+<div class="portfolio">
+    <h2>Portfólio - Hotéis</h2>
+    <p>Explore exemplos reais de hotéis que já utilizaram nossos serviços de tours virtuais.</p>
+    <a href="pagina_exemplo_hotel.html">Veja Mais</a>
+</div>
