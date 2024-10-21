@@ -1,23 +1,24 @@
-<!-- Estilos CSS para o card centralizado -->
+<!-- Estilos CSS para o card centralizado com conteúdo centralizado -->
 <style>
     /* Centraliza o container do card */
     .container {
         display: flex;
-        justify-content: center; /* Centraliza horizontalmente */
-        align-items: center; /* Centraliza verticalmente */
-        min-height: 100vh; /* Define a altura mínima como 100% da altura da janela de visualização */
+        justify-content: center; /* Centraliza o card horizontalmente */
+        align-items: center; /* Centraliza o card verticalmente */
+        min-height: 100vh; /* Altura mínima igual à altura da janela */
     }
 
     /* Estilos para o card */
     .portfolio {
-        display: inline-block; /* Exibe como bloco em linha */
+        display: inline-block;
         width: 45%; /* Define a largura do card */
-        margin: 20px; /* Margem ao redor do card */
-        padding: 20px; /* Espaçamento interno */
-        background-color: #fff; /* Cor de fundo do card */
+        margin: 20px;
+        padding: 20px;
+        background-color: #fff;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ao redor do card */
         border-radius: 10px; /* Bordas arredondadas */
-        transition: transform 0.3s ease-in-out; /* Animação suave ao passar o mouse */
+        transition: transform 0.3s ease-in-out;
+        text-align: center; /* Centraliza o conteúdo dentro do card */
     }
 
     /* Animação ao passar o mouse sobre o card */
@@ -27,29 +28,29 @@
 
     /* Estilos para o título dentro do card */
     .portfolio h2 {
-        font-size: 2em; /* Tamanho da fonte do título */
+        font-size: 2em;
     }
 
     /* Estilos para o parágrafo descritivo dentro do card */
     .portfolio p {
-        font-size: 1em; /* Tamanho da fonte do parágrafo */
-        margin-bottom: 15px; /* Espaçamento inferior */
+        font-size: 1em;
+        margin-bottom: 15px;
     }
 
     /* Estilos para o link de 'Veja Mais' */
     .portfolio a {
-        display: inline-block; /* Exibe o link como bloco em linha */
-        text-decoration: none; /* Remove o sublinhado do link */
-        color: white; /* Cor do texto do link */
-        background-color: #333; /* Cor de fundo do botão/link */
-        padding: 10px 20px; /* Espaçamento interno no botão/link */
-        border-radius: 5px; /* Bordas arredondadas do botão/link */
-        transition: background-color 0.3s; /* Transição suave de cor de fundo */
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        background-color: #333;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
     }
 
     /* Animação ao passar o mouse sobre o link */
     .portfolio a:hover {
-        background-color: #555; /* Muda a cor de fundo do link ao passar o mouse */
+        background-color: #555;
     }
 </style>
 
