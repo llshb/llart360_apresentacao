@@ -1,5 +1,13 @@
-<!-- Estilos CSS para o card -->
+<!-- Estilos CSS para o card centralizado -->
 <style>
+    /* Centraliza o container do card */
+    .container {
+        display: flex;
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+        min-height: 100vh; /* Define a altura mínima como 100% da altura da janela de visualização */
+    }
+
     /* Estilos para o card */
     .portfolio {
         display: inline-block; /* Exibe como bloco em linha */
@@ -45,9 +53,11 @@
     }
 </style>
 
-<!-- Estrutura HTML do card -->
-<div class="portfolio">
-    <h2>Portfólio - Hotéis</h2>
-    <p>Explore exemplos reais de hotéis que já utilizaram nossos serviços de tours virtuais.</p>
-    <a href="pagina_exemplo_hotel.html">Veja Mais</a>
+<!-- Estrutura HTML do card centralizado -->
+<div class="container">
+    <div class="portfolio">
+        <h2>Portfólio - Hotéis</h2>
+        <p>Explore exemplos reais de hotéis que já utilizaram nossos serviços de tours virtuais.</p>
+        <a href="pagina_exemplo_hotel.html">Veja Mais</a>
+    </div>
 </div>
