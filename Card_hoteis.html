@@ -1,63 +1,54 @@
-<!-- Estilos CSS para o card centralizado com conteúdo centralizado -->
-<style>
-    /* Centraliza o container do card */
-    .container {
-        display: flex;
-        justify-content: center; /* Centraliza o card horizontalmente */
-        align-items: center; /* Centraliza o card verticalmente */
-        min-height: 100vh; /* Altura mínima igual à altura da janela */
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Hotéis</title>
+    
+    <style>
+        /* Centraliza o conteúdo dentro do card */
+        .portfolio {
+            display: inline-block;
+            width: 100%; /* O card ocupará 100% da largura do iframe */
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ao redor do card */
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            text-align: center; /* Centraliza o conteúdo dentro do card */
+        }
 
-    /* Estilos para o card */
-    .portfolio {
-        display: inline-block;
-        width: 45%; /* Define a largura do card */
-        margin: 20px;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ao redor do card */
-        border-radius: 10px; /* Bordas arredondadas */
-        transition: transform 0.3s ease-in-out;
-        text-align: center; /* Centraliza o conteúdo dentro do card */
-    }
+        /* Animação ao passar o mouse sobre o card */
+        .portfolio:hover {
+            transform: scale(1.05); /* Aumenta o tamanho do card em 5% */
+        }
 
-    /* Animação ao passar o mouse sobre o card */
-    .portfolio:hover {
-        transform: scale(1.05); /* Aumenta o tamanho do card em 5% */
-    }
+        /* Estilos para o link */
+        .portfolio a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
 
-    /* Estilos para o título dentro do card */
-    .portfolio h2 {
-        font-size: 2em;
-    }
+        /* Animação ao passar o mouse sobre o link */
+        .portfolio a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
 
-    /* Estilos para o parágrafo descritivo dentro do card */
-    .portfolio p {
-        font-size: 1em;
-        margin-bottom: 15px;
-    }
-
-    /* Estilos para o link de 'Veja Mais' */
-    .portfolio a {
-        display: inline-block;
-        text-decoration: none;
-        color: white;
-        background-color: #333;
-        padding: 10px 20px;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-
-    /* Animação ao passar o mouse sobre o link */
-    .portfolio a:hover {
-        background-color: #555;
-    }
-</style>
-
-<!-- Estrutura HTML do card centralizado -->
-<div class="container">
+    <!-- Bloco de portfólio de hotéis com o link no botão -->
     <div class="portfolio">
         <h2>Portfólio - Hotéis</h2>
         <p>Explore exemplos reais de hotéis que já utilizaram nossos serviços de tours virtuais.</p>
+        <!-- O link agora está apenas no botão "Veja Mais" -->
+        <a href="https://exemplo.com" target="_blank">Veja Mais</a>
     </div>
-</div>
+
+</body>
+</html>
