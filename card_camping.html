@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Hotéis</title>
+    
+    <style>
+        /* Estilos para o body */
+        body {
+            display: flex; /* Usa Flexbox para centralização */
+            justify-content: center; /* Centraliza o card horizontalmente */
+            align-items: center; /* Centraliza o card verticalmente */
+            height: 100vh; /* O corpo ocupará 100% da altura da tela */
+            margin: 0; /* Remove margens */
+            padding: 0; /* Remove padding */
+            background-color: rgb(9, 15, 19); /* Cor de fundo ajustada para RGB (9, 15, 19) */
+        }
+
+        /* Estilos para o card */
+        .portfolio {
+            width: 100%; /* O card ocupará 100% da largura disponível */
+            max-width: 600px; /* Limita a largura máxima do card */
+            padding: 20px;
+            background-color: #fff; /* Cor de fundo do card */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ao redor do card */
+            border-radius: 10px; /* Bordas arredondadas */
+            transition: transform 0.3s ease-in-out; /* Animação suave no hover */
+            text-align: center; /* Centraliza o conteúdo dentro do card */
+        }
+
+        /* Animação ao passar o mouse sobre o card */
+        .portfolio:hover {
+            transform: scale(1.05); /* Aumenta o tamanho do card em 5% */
+        }
+
+        /* Estilos para o link */
+        .portfolio a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        /* Animação ao passar o mouse sobre o link */
+        .portfolio a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bloco de portfólio de hotéis com o link no botão -->
+    <div class="portfolio">
+        <h2>Portfólio - Campings</h2>
+        <p>Facilite a venda ou aluguel de imóveis com uma experiência imersiva. Tours virtuais oferecem uma visão completa e detalhada das propriedades.</p>
+        <!-- O link agora está apenas no botão "Veja Mais" -->
+        <a href="https://www.llart360.com/im%C3%B3veis-bb" target="_blank">Veja Mais</a>
+    </div>
+
+</body>
+</html>
