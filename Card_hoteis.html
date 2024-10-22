@@ -2,20 +2,19 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Tag de viewport crucial para responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport meta tag crucial -->
     <title>Card Hotéis</title>
     <style>
-        /* Estilos globais para ajustar a responsividade */
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             background-color: rgb(9, 15, 19);
+            width: 100%; /* Certifica que o body ocupe 100% da largura */
         }
 
         .card {
-            width: 100%;
-            max-width: 600px; /* Limite máximo da largura */
+            max-width: 100%; /* O card deve ocupar no máximo 100% da largura disponível */
             margin: 20px auto;
             padding: 20px;
             background-color: white;
@@ -24,17 +23,52 @@
             text-align: center;
         }
 
-        /* Responsividade para telas menores */
+        /* Ajustar fontes para dispositivos móveis */
+        h1 {
+            font-size: 2em; /* Usa em para ser relativo ao tamanho do viewport */
+        }
+
+        p {
+            font-size: 1em; /* Ajustável para tamanhos menores de tela */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+
+        /* Ajustes para dispositivos móveis */
         @media (max-width: 768px) {
             .card {
-                width: 90%; /* O card ocupará 90% da tela em dispositivos menores */
+                width: 90%; /* O card deve ocupar 90% da largura em telas menores */
+            }
+
+            h1 {
+                font-size: 1.5em; /* Ajusta o tamanho da fonte para telas menores */
+            }
+
+            p {
+                font-size: 0.9em;
             }
         }
 
         @media (max-width: 480px) {
             .card {
-                width: 100%; /* O card ocupará 100% da tela em dispositivos móveis */
+                width: 100%; /* O card ocupará toda a largura da tela em celulares */
                 margin: 10px;
+            }
+
+            h1 {
+                font-size: 1.2em; /* Reduz o título em celulares */
+            }
+
+            p {
+                font-size: 0.8em; /* Reduz o texto em celulares */
+            }
+
+            button {
+                padding: 8px 16px; /* Ajusta o botão para telas pequenas */
+                font-size: 0.9em;
             }
         }
     </style>
@@ -43,6 +77,7 @@
     <div class="card">
         <h1>Portfólio - Hotéis</h1>
         <p>Explore exemplos reais de hotéis que já utilizaram nossos serviços de tours virtuais.</p>
+        <button>Veja Mais</button>
     </div>
 </body>
 </html>
