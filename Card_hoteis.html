@@ -1,65 +1,48 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Hotéis</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Tag de viewport crucial para responsividade -->
+    <title>Card Hotéis</title>
     <style>
-        /* Estilos para o body */
+        /* Estilos globais para ajustar a responsividade */
         body {
-            display: flex; /* Usa Flexbox para centralização */
-            justify-content: center; /* Centraliza o card horizontalmente */
-            align-items: center; /* Centraliza o card verticalmente */
-            height: 100vh; /* O corpo ocupará 100% da altura da tela */
-            margin: 0; /* Remove margens */
-            padding: 0; /* Remove padding */
-            background-color: rgb(9, 15, 19); /* Cor de fundo ajustada para RGB (9, 15, 19) */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(9, 15, 19);
         }
 
-        /* Estilos para o card */
-        .portfolio {
-            width: 100%; /* O card ocupará 100% da largura disponível */
-            max-width: 600px; /* Limita a largura máxima do card */
+        .card {
+            width: 100%;
+            max-width: 600px; /* Limite máximo da largura */
+            margin: 20px auto;
             padding: 20px;
-            background-color: #fff; /* Cor de fundo do card */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ao redor do card */
-            border-radius: 10px; /* Bordas arredondadas */
-            transition: transform 0.3s ease-in-out; /* Animação suave no hover */
-            text-align: center; /* Centraliza o conteúdo dentro do card */
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
         }
 
-        /* Animação ao passar o mouse sobre o card */
-        .portfolio:hover {
-            transform: scale(1.05); /* Aumenta o tamanho do card em 5% */
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .card {
+                width: 90%; /* O card ocupará 90% da tela em dispositivos menores */
+            }
         }
 
-        /* Estilos para o link */
-        .portfolio a {
-            display: inline-block;
-            text-decoration: none;
-            color: white;
-            background-color: #333;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        /* Animação ao passar o mouse sobre o link */
-        .portfolio a:hover {
-            background-color: #555;
+        @media (max-width: 480px) {
+            .card {
+                width: 100%; /* O card ocupará 100% da tela em dispositivos móveis */
+                margin: 10px;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Bloco de portfólio de hotéis com o link no botão -->
-    <div class="portfolio">
-        <h2>Portfólio - Hotéis</h2>
+    <div class="card">
+        <h1>Portfólio - Hotéis</h1>
         <p>Explore exemplos reais de hotéis que já utilizaram nossos serviços de tours virtuais.</p>
-        <!-- O link agora está apenas no botão "Veja Mais" -->
-        <a href="https://www.llart360.com/portifolio_hoteis" target="_blank">Veja Mais</a>
     </div>
-
 </body>
 </html>
