@@ -3,140 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LL Art 360º - Apresentação de Portfólios</title>
+    <title>Fluxograma LL Art 360</title>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script>
     <style>
+        /* Estilos gerais do fluxograma */
         body {
             font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f0f0;
         }
 
-        header {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        nav {
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2em;
-            color: #333;
-            padding: 10px 20px;
-            background-color: #ddd;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #bbb;
-        }
-
-        section {
-            text-align: center;
-            margin: 40px;
-        }
-
-        section h2 {
-            font-size: 2em;
-        }
-
-        .portfolio {
-            display: inline-block;
-            width: 45%;
-            margin: 20px;
-            padding: 20px;
+        #fluxograma {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
             background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            transition: transform 0.3s ease-in-out;
+            border: 2px solid #333;
         }
 
-        .portfolio:hover {
-            transform: scale(1.05);
-        }
-
-        .portfolio h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-
-        .portfolio p {
-            font-size: 1em;
-            margin-bottom: 15px;
-        }
-
-        .portfolio a {
-            display: inline-block;
-            text-decoration: none;
+        .node {
+            width: 150px;
+            padding: 10px;
+            background-color: #00aaff;
             color: white;
-            background-color: #333;
-            padding: 10px 20px;
+            text-align: center;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            position: absolute;
+            cursor: pointer;
+            user-select: none;
         }
 
-        .portfolio a:hover {
-            background-color: #555;
+        .node .delete-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: #ff3333;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>LL Art 360º - Apresentação de Portfólios</h1>
-</header>
-
-<nav>
-    <a href="#hoteis">Hotéis</a>
-    <a href="#restaurantes">Restaurantes</a>
-    <a href="#imobiliarias">Imobiliárias</a>
-    <a href="#campings">Campings</a>
-</nav>
-
-<section id="hoteis">
-    <div class="portfolio">
-        <h2>Portfólio - Hotéis</h2>
-        <p>Nossa experiência com tours virtuais oferece aos hotéis uma forma inovadora de apresentar suas instalações. Explore exemplos reais de hotéis que já utilizaram nossos serviços.</p>
-        <a href="pagina_hoteis.html">Veja Mais</a>
+<div id="fluxograma">
+    <!-- Nó inicial do fluxograma -->
+    <div class="node" style="top: 50px; left: 50px;" id="node1">
+        <span>Início</span>
+        <span class="delete-btn" onclick="deleteNode('node1')">×</span>
     </div>
-</section>
+</div>
 
-<section id="restaurantes">
-    <div class="portfolio">
-        <h2>Portfólio - Restaurantes</h2>
-        <p>Apresentar o ambiente e a atmosfera de um restaurante é essencial para atrair clientes. Veja como nossos tours virtuais destacam a estética e os serviços de cada restaurante.</p>
-        <a href="pagina_restaurantes.html">Veja Mais</a>
-    </div>
-</section>
+<script>
+    // Função para tornar os elementos arrastáveis
+    interact('.node').draggable({
+        listeners: {
+            move(event) {
+                const target = event.target;
+                const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
-<section id="imobiliarias">
-    <div class="portfolio">
-        <h2>Portfólio - Imobiliárias</h2>
-        <p>Facilite a venda ou aluguel de imóveis com uma experiência imersiva. Tours virtuais oferecem uma visão completa e detalhada das propriedades.</p>
-        <a href="pagina_imobiliarias.html">Veja Mais</a>
-    </div>
-</section>
+                target.style.transform = `translate(${x}px, ${y}px)`;
+                target.setAttribute('data-x', x);
+                target.setAttribute('data-y', y);
+            }
+        }
+    });
 
-<section id="campings">
-    <div class="portfolio">
-        <h2>Portfólio - Campings</h2>
-        <p>Permita que seus clientes explorem cada detalhe do camping antes de visitá-lo. Nossos tours virtuais garantem uma visualização completa e envolvente.</p>
-        <a href="pagina_campings.html">Veja Mais</a>
-    </div>
-</section>
+    // Função para criar novos nós no fluxograma
+    document.addEventListener('dblclick', function(event) {
+        const node = document.createElement('div');
+        node.classList.add('node');
+        node.style.top = `${event.clientY - 25}px`;
+        node.style.left = `${event.clientX - 75}px`;
+        node.innerHTML = `<span>Novo Nó</span><span class="delete-btn" onclick="deleteNode()">×</span>`;
+        node.id = `node${document.querySelectorAll('.node').length + 1}`;
+        node.querySelector('.delete-btn').setAttribute('onclick', `deleteNode('${node.id}')`);
+
+        document.getElementById('fluxograma').appendChild(node);
+        interact(node).draggable({
+            listeners: {
+                move(event) {
+                    const target = event.target;
+                    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+                    target.style.transform = `translate(${x}px, ${y}px)`;
+                    target.setAttribute('data-x', x);
+                    target.setAttribute('data-y', y);
+                }
+            }
+        });
+    });
+
+    // Função para deletar nós
+    function deleteNode(id) {
+        const node = document.getElementById(id);
+        if (node) {
+            node.remove();
+        }
+    }
+</script>
 
 </body>
 </html>
