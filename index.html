@@ -1,112 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fluxograma LL Art 360</title>
-    <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script>
-    <style>
-        /* Estilos gerais do fluxograma */
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-
-        #fluxograma {
-            width: 100%;
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-            background-color: #fff;
-            border: 2px solid #333;
-        }
-
-        .node {
-            width: 150px;
-            padding: 10px;
-            background-color: #00aaff;
-            color: white;
-            text-align: center;
-            border-radius: 5px;
-            position: absolute;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .node .delete-btn {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            color: #ff3333;
-            font-weight: bold;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma 3D</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
 </head>
 <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js"></script>
+  <script>
+    // Configuração Básica
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
 
-<div id="fluxograma">
-    <!-- Nó inicial do fluxograma -->
-    <div class="node" style="top: 50px; left: 50px;" id="node1">
-        <span>Início</span>
-        <span class="delete-btn" onclick="deleteNode('node1')">×</span>
-    </div>
-</div>
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
-<script>
-    // Função para tornar os elementos arrastáveis
-    interact('.node').draggable({
-        listeners: {
-            move(event) {
-                const target = event.target;
-                const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-                const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+    // Iluminação
+    const light = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(light);
 
-                target.style.transform = `translate(${x}px, ${y}px)`;
-                target.setAttribute('data-x', x);
-                target.setAttribute('data-y', y);
-            }
-        }
-    });
+    const pointLight = new THREE.PointLight(0xffffff, 0.5);
+    pointLight.position.set(10, 10, 10);
+    scene.add(pointLight);
 
-    // Função para criar novos nós no fluxograma
-    document.addEventListener('dblclick', function(event) {
-        const node = document.createElement('div');
-        node.classList.add('node');
-        node.style.top = `${event.clientY - 25}px`;
-        node.style.left = `${event.clientX - 75}px`;
-        node.innerHTML = `<span>Novo Nó</span><span class="delete-btn" onclick="deleteNode()">×</span>`;
-        node.id = `node${document.querySelectorAll('.node').length + 1}`;
-        node.querySelector('.delete-btn').setAttribute('onclick', `deleteNode('${node.id}')`);
+    // Piso
+    const floorGeometry = new THREE.PlaneGeometry(20, 20);
+    const floorMaterial = new THREE.MeshBasicMaterial({ color: 0x808080, side: THREE.DoubleSide });
+    const floor = new THREE.Mesh(floorGeometry, floorMaterial);
+    floor.rotation.x = Math.PI / 2;
+    scene.add(floor);
 
-        document.getElementById('fluxograma').appendChild(node);
-        interact(node).draggable({
-            listeners: {
-                move(event) {
-                    const target = event.target;
-                    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-                    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-                    target.style.transform = `translate(${x}px, ${y}px)`;
-                    target.setAttribute('data-x', x);
-                    target.setAttribute('data-y', y);
-                }
-            }
-        });
-    });
+    // Exemplo de Objeto
+    const boxGeometry = new THREE.BoxGeometry();
+    const boxMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+    const box = new THREE.Mesh(boxGeometry, boxMaterial);
+    box.position.y = 0.5;
+    scene.add(box);
 
-    // Função para deletar nós
-    function deleteNode(id) {
-        const node = document.getElementById(id);
-        if (node) {
-            node.remove();
-        }
-    }
-</script>
+    // Posição da Câmera
+    camera.position.set(0, 5, 10);
+    camera.lookAt(0, 0, 0);
 
+    // Controles Interativos
+    const animate = function () {
+      requestAnimationFrame(animate);
+      box.rotation.x += 0.01;
+      box.rotation.y += 0.01;
+      renderer.render(scene, camera);
+    };
+
+    animate();
+  </script>
 </body>
 </html>
